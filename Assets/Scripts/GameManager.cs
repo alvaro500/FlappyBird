@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverText;
+    [SerializeField] private TMP_Text scoreText;
     private static GameManager instance;
     public static GameManager Instance {get {return instance; } }
 
     public int numerotest;
     public bool isGameOver;
+
+    private int score;
 
     // Start is called before the first frame update
     void Awake()
@@ -42,5 +46,11 @@ public class GameManager : MonoBehaviour
     private void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void IncreaseScore()
+    {
+        score++;
+        scoreText.text = score.ToString();
     }
 }

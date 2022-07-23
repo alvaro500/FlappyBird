@@ -7,6 +7,10 @@ public class ObstaclePool : MonoBehaviour
     [SerializeField] private GameObject obstaclePrefab;
     [SerializeField] private int poolSize = 5;
     [SerializeField] private float spawnTime = 2.5f;
+    [SerializeField] private float xSpawnPosition = 12f;
+    [SerializeField] private float minYPosition = -2f;
+    [SerializeField] private float maxYPosition = 3f;
+
 
     private float timeElapsed; //Guardar el tiempo que pasó desde la última aparición
     private int obstacleCount;
@@ -29,7 +33,7 @@ public class ObstaclePool : MonoBehaviour
     void Update()
     {
         timeElapsed += Time.deltaTime;
-        if (timeElapsed > spawnTime)
+        if (timeElapsed > spawnTime && !GameManager.Instance.isGameOver)
         {
             SpawnObstacle();
         }        
@@ -40,6 +44,15 @@ public class ObstaclePool : MonoBehaviour
         timeElapsed = 0f;
         obstacles[obstacleCount].SetActive(true);
         obstacleCount++;
+
+        float ySpawnPosition = Random.Range(minYPosition, maxYPosition);
+        Vector2 spawnPosition = new Vector2(xSpawnPosition, ySpawnPosition);
+        obstacles[obstacleCount].transform.position = spawnPosition;
+
+        if (!obstacles[obstacleCount].activeSelf)
+        {
+            obstacles[obstacleCount].SetActive(false);
+        }
 
         if (obstacleCount == poolSize)
         {

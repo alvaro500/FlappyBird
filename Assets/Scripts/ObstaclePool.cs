@@ -43,7 +43,6 @@ public class ObstaclePool : MonoBehaviour
     {
         timeElapsed = 0f;
         obstacles[obstacleCount].SetActive(true);
-        obstacleCount++;
 
         float ySpawnPosition = Random.Range(minYPosition, maxYPosition);
         Vector2 spawnPosition = new Vector2(xSpawnPosition, ySpawnPosition);
@@ -51,8 +50,10 @@ public class ObstaclePool : MonoBehaviour
 
         if (!obstacles[obstacleCount].activeSelf)
         {
-            obstacles[obstacleCount].SetActive(false);
+            obstacles[obstacleCount].SetActive(true);
         }
+
+        obstacleCount++;
 
         if (obstacleCount == poolSize)
         {

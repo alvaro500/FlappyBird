@@ -6,15 +6,19 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float upForce = 350f;
     private bool isDead;
-    private Rigidbody2D playerRb;
+//    private Rigidbody2D playerRb;
     Animator playerAnimator;
     public PlayerAnimations playerAnimations;
+    public PlayerInput playerInput;
+    public PlayerMovement playerMovement;
 
 
     void Awake()
     {
         playerAnimations = GetComponent<PlayerAnimations>();
-        playerRb = GetComponent<Rigidbody2D>();
+        //playerRb = GetComponent<Rigidbody2D>();
+        playerInput = GetComponent<PlayerInput>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
     // Start is called before the first frame update
     void Start()
@@ -27,10 +31,15 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && isDead == false)
+        //if (Input.GetMouseButtonDown(0) && isDead == false)
+        //{
+        //    //Flap();
+        //    //playerAnimations.Flap(playerRb, upForce);
+        //}
+        if (isDead == false)
         {
-            //Flap();
-            playerAnimations.Flap(playerRb, upForce);
+            playerMovement.JumpPlayer(playerInput.GetJumpInput(), upForce);
+            playerAnimations.Flap(playerInput.GetJumpInput());
         }
     }
 

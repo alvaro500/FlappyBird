@@ -762,6 +762,8 @@ GameObject:
   - component: {fileID: 1542626199}
   - component: {fileID: 1542626201}
   - component: {fileID: 1542626197}
+  - component: {fileID: 1542626203}
+  - component: {fileID: 1542626202}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -858,6 +860,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upForce: 350
   playerAnimations: {fileID: 0}
+  playerInput: {fileID: 0}
+  playerMovement: {fileID: 0}
+--- !u!114 &1542626202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542626196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366fedcff9e2b9a4aaa92cf9080474be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1542626203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542626196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a09f990942ebdc4986df6f84195ceaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputButton: 0
 --- !u!1 &1621744762
 GameObject:
   m_ObjectHideFlags: 0

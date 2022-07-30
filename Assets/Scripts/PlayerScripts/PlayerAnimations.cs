@@ -6,11 +6,13 @@ public class PlayerAnimations : MonoBehaviour
 {
     public Animator playerAnimator;
 
-    public void Flap(Rigidbody2D playerRgb2D, float force)
+    public void Flap(bool jump)
     {
-        playerRgb2D.velocity = Vector2.zero;
-        playerRgb2D.AddForce(Vector2.up * force);
-        playerAnimator.SetTrigger("Flap");
+        if (jump)
+        {
+            playerAnimator.SetTrigger("Flap");
+        }
+        
     }
 
     public void Die()

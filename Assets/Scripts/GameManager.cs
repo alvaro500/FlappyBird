@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     private int score;
 
-    // Start is called before the first frame update
+
     void Awake()
     {
         if (instance == null)
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && isGameOver)

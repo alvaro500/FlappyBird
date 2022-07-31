@@ -6,17 +6,26 @@ public class PlayerAnimations : MonoBehaviour
 {
     public Animator playerAnimator;
 
+    int flapHashCode;
+    int dieHasCode;
+
+    private void Start()
+    {
+        // StringToHash nos ayuda a optimizar un poco las animaciones
+        flapHashCode = Animator.StringToHash("Flap");
+        dieHasCode = Animator.StringToHash("Die");
+    }
+
     public void Flap(bool jump)
     {
         if (jump)
         {
-            playerAnimator.SetTrigger("Flap");
+            playerAnimator.SetTrigger(flapHashCode);
         }
-        
     }
 
     public void Die()
     {
-        playerAnimator.SetTrigger("Die");
+        playerAnimator.SetTrigger(dieHasCode);
     }
 }

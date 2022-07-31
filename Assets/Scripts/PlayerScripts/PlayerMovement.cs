@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (jump)
         {
-            playerRb.velocity = Vector2.zero; //Esto para que su velocidad de subida sea inalterada
+            playerRb.velocity = Vector2.zero;
             playerRb.AddForce(Vector2.up * force);
         }
     }
